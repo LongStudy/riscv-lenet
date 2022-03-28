@@ -113,20 +113,25 @@ verilator -V
 
 ```bash
 cd ~
-git clone https://github.com/LongStudy/riscv-net.git
+git clone https://github.com/LongStudy/riscv-net.git # only once
+cd riscv-net # every time
+git pull # every time
 ```
 
 * copy rtl设计
 ```bash
 cd ~
-mv core-v-verif/core-v-cores/cv32e40p/rtl/ core-v-verif/core-v-cores/cv32e40p/rtl_bk/
-cp -r riscv-net/rtl/ core-v-verif/core-v-cores/cv32e40p/
+mv core-v-verif/core-v-cores/cv32e40p/rtl/ core-v-verif/core-v-cores/cv32e40p/rtl_bk/ # only once
+cp -r riscv-net/rtl/ core-v-verif/core-v-cores/cv32e40p/ # every time
 ```
 
 * copy net设计
 ```bash
-mkdir core-v-verif/cv32e40p/tests/programs/custom/lenet
-cp riscv-net/lenet_c/lenet.c core-v-verif/cv32e40p/tests/programs/custom/lenet
-cd core-v-verif/cv32e40p/tests/programs/custom/lenet
-riscv32-unknown-elf-gcc -S lenet.c 
+cd ~
+mkdir core-v-verif/cv32e40p/tests/programs/custom/lenet # only once
+cp riscv-net/lenet/lenet.c core-v-verif/cv32e40p/tests/programs/custom/lenet # every time
+cd core-v-verif/cv32e40p/tests/programs/custom/lenet # every time
+riscv32-unknown-elf-gcc -S lenet.c
+mv lenet.s lenet.S
+rm lenet.c
 ```
