@@ -52,6 +52,10 @@ source ~/.bashrc
 echo $PATH
 ```
 
+* 软连接 riscv 到 riscv-gun-toolchain
+```bash
+sudo ln -s /opt/riscv-gun-toolchain /opt/riscv
+```
 * 检查环境
 ```bash
 riscv32-unknown-elf-gcc -v
@@ -102,4 +106,27 @@ sudo make install
 * 检查 verilator 环境
 ```bash
 verilator -V
+```
+
+## 实现
+### 验证功能
+
+```bash
+cd ~
+git clone https://github.com/LongStudy/riscv-net.git
+```
+
+* copy rtl设计
+```bash
+cd ~
+mv core-v-verif/core-v-cores/cv32e40p/rtl/ core-v-verif/core-v-cores/cv32e40p/rtl_bk/
+cp -r riscv-net/rtl/ core-v-verif/core-v-cores/cv32e40p/
+```
+
+* copy net设计
+```bash
+mkdir core-v-verif/cv32e40p/tests/programs/custom/lenet
+cp riscv-net/lenet_c/lenet.c core-v-verif/cv32e40p/tests/programs/custom/lenet
+cd core-v-verif/cv32e40p/tests/programs/custom/lenet
+riscv32-unknown-elf-gcc -S lenet.c 
 ```
