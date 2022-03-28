@@ -2,7 +2,7 @@
 ## 工具链
 ### 下载 riscv-gnu-toolchain
 
-* 参考https://github.com/riscv-collab/riscv-gnu-toolchain，并提前准备好代理网络。
+* 参考https://github.com/riscv-collab/riscv-gnu-toolchain
 * clone 后排除了 qemu 这个子仓库，一来因为 qemu 完整下载太大；二来 qemu 对 toolchain 的编译本身来说其实并不需要。
 ```bash
 cd ~
@@ -59,7 +59,7 @@ riscv32-unknown-elf-gcc -v
 
 ### 下载 core-v-verif & verilator
 
-* 参考https://github.com/openhwgroup/core-v-verif，并提前准备好代理网络。
+* 参考https://github.com/openhwgroup/core-v-verif
 ```bash
 cd ~
 git clone https://github.com/openhwgroup/core-v-verif.git
@@ -71,7 +71,7 @@ cd core-v-verif
 git checkout cd2fe0fa6c3f5e6d0b240af65272aaeb9f6e79b6
 ```
 
-* 参考https://verilator.org/guide/latest/install.html，并提前准备好代理网络。
+* 参考https://verilator.org/guide/latest/install.html
 ```bash
 cd ~
 # Prerequisites:
