@@ -7,7 +7,7 @@
 ```bash
 cd ~
 git clone https://github.com/riscv/riscv-gnu-toolchain
-cd riscv-gnu-toolchain
+cd ~/riscv-gnu-toolchain
 git rm qemu
 ```
 
@@ -71,7 +71,7 @@ git clone https://github.com/openhwgroup/core-v-verif.git
 
 * 暂时切换到老版本，新版本暂未适配
 ```bash
-cd core-v-verif
+cd ~/core-v-verif
 git checkout cd2fe0fa6c3f5e6d0b240af65272aaeb9f6e79b6
 ```
 
@@ -90,7 +90,7 @@ git clone https://github.com/verilator/verilator   # Only first time
 # Every time you need to build:
 unsetenv VERILATOR_ROOT  # For csh; ignore error if on bash
 unset VERILATOR_ROOT  # For bash
-cd verilator
+cd ~/verilator
 git pull         # Make sure git repository is up-to-date
 #git tag          # See what versions exist
 #git checkout master      # Use development branch (e.g. recent bug fixes)
@@ -114,24 +114,29 @@ verilator -V
 ```bash
 cd ~
 git clone https://github.com/LongStudy/riscv-net.git # only once
-cd riscv-net # every time
+cd ~/riscv-net # every time
 git pull # every time
 ```
 
 * copy rtl设计
 ```bash
-cd ~
-mv core-v-verif/core-v-cores/cv32e40p/rtl/ core-v-verif/core-v-cores/cv32e40p/rtl_bk/ # only once
-cp -r riscv-net/rtl/ core-v-verif/core-v-cores/cv32e40p/ # every time
+mv ~/core-v-verif/core-v-cores/cv32e40p/rtl/ ~/core-v-verif/core-v-cores/cv32e40p/rtl_bk/ # only once
+cp -r ~/riscv-net/rtl/ ~/core-v-verif/core-v-cores/cv32e40p/ # every time
 ```
 
 * copy net设计
 ```bash
-cd ~
-mkdir core-v-verif/cv32e40p/tests/programs/custom/lenet # only once
-cp riscv-net/lenet/lenet.c core-v-verif/cv32e40p/tests/programs/custom/lenet # every time
-cd core-v-verif/cv32e40p/tests/programs/custom/lenet # every time
+cp -r ~/riscv-net/lenet/ ~/core-v-verif/cv32e40p/tests/programs/custom/lenet # every time
+```
+
+* 汇编与验证
+```bash
+cd ~/core-v-verif/cv32e40p/tests/programs/custom/lenet # every time
 riscv32-unknown-elf-gcc -S lenet.c
 mv lenet.s lenet.S
 rm lenet.c
+cd ~/core-v-verif/cv32e40p/sim/core/
+make clean
+make veri-test TEST=lenet
 ```
+
