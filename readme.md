@@ -138,6 +138,7 @@ mv lenet.s lenet.S # every time
 rm lenet.c # every time
 cd ~/core-v-verif/cv32e40p/sim/core/ # every time
 make clean # every time
+# make veri-test TEST=hello-world # debug
 make veri-test TEST=lenet # every time
 ```
 
