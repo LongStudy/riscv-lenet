@@ -111,6 +111,7 @@ verilator -V
 ## 实现
 ### 验证功能
 
+* 获取源码设计
 ```bash
 cd ~
 git clone https://github.com/LongStudy/riscv-net.git # only once
@@ -132,11 +133,11 @@ cp -r ~/riscv-net/lenet/ ~/core-v-verif/cv32e40p/tests/programs/custom/lenet # e
 * 汇编与验证
 ```bash
 cd ~/core-v-verif/cv32e40p/tests/programs/custom/lenet # every time
-riscv32-unknown-elf-gcc -S lenet.c
-mv lenet.s lenet.S
-rm lenet.c
-cd ~/core-v-verif/cv32e40p/sim/core/
-make clean
-make veri-test TEST=lenet
+riscv32-unknown-elf-gcc -S lenet.c # every time
+mv lenet.s lenet.S # every time
+rm lenet.c # every time
+cd ~/core-v-verif/cv32e40p/sim/core/ # every time
+make clean # every time
+make veri-test TEST=lenet # every time
 ```
 
