@@ -135,23 +135,23 @@ make custom CUSTOM_PROG=coremark # only once
 ## 实现
 ### 验证功能
 
-* 获取源码设计
+* 获取RTL设计
 ```bash
 cd ~
-git clone https://github.com/LongStudy/riscv-net.git # only once
-cd ~/riscv-net # every time
+git clone https://github.com/LongStudy/cv32e40p.git # only once
+cd ~/cv32e40p # every time
 git pull # every time
 ```
 
-* copy rtl设计
+* 复制RTL设计
 ```bash
 mv ~/core-v-verif/core-v-cores/cv32e40p/rtl/ ~/core-v-verif/core-v-cores/cv32e40p/rtl_bk/ # only once
-cp -r ~/riscv-net/rtl/ ~/core-v-verif/core-v-cores/cv32e40p/ # every time
+cp -r ~/cv32e40p/rtl/ ~/core-v-verif/core-v-cores/cv32e40p/ # every time
 ```
 
 * copy net设计
 ```bash
-cp -r ~/riscv-net/lenet/ ~/core-v-verif/cv32e40p/tests/programs/custom/lenet # every time
+cp -r ~/riscv-net/lenet/ ~/core-v-verif/cv32e40p/tests/programs/custom/ # every time
 ```
 
 * 汇编
