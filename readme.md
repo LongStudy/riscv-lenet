@@ -151,6 +151,8 @@ cp -r ~/cv32e40p/rtl/ ~/core-v-verif/core-v-cores/cv32e40p/ # every time
 
 * copy net设计
 ```bash
+cd ~
+git clone https://github.com/LongStudy/riscv-net.git # only once
 cp -r ~/riscv-net/lenet/ ~/core-v-verif/cv32e40p/tests/programs/custom/ # every time
 ```
 
